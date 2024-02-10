@@ -21,7 +21,7 @@ app.use("/users", userRoutes);
 app.use("/todos", todosRoutes);
 
 // Database Connection
-const dbURI = "mongodb+srv://omar010:XH9J7l76qXyiOBIg@cluster0.zlqj0ym.mongodb.net/?retryWrites=true&w=majority";
+const dbURI = `mongodb+srv://omar010:${process.env.mongopass}@cluster0.zlqj0ym.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("DB Connected Successfully"))
   .catch((err) => console.log(`Something went wrong with the database: ${err}`));
